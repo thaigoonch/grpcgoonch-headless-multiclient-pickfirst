@@ -64,7 +64,7 @@ func main() {
 				Key:  key,
 			}
 
-			for i := 0; i < 100; i++ {
+			for i := 0; i < 120; i++ {
 				response, err := c.CryptoRequest(context.Background(), &request)
 				if err != nil {
 					grpclog.Fatalf("Error when calling CryptoRequest(): %v", err)
