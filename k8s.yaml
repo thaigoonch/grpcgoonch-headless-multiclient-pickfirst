@@ -15,7 +15,7 @@ spec:
         spec:
           containers:
           - name: grpcgoonch-headless-multiclient-pickfirst
-            image: thaigoonch/grpcgoonch-headless-multiclient-pickfirst:1.0
+            image: thaigoonch/grpcgoonch-headless-multiclient-pickfirst:1.1
             imagePullPolicy: IfNotPresent
             env:
             - name: LOG_LEVEL
