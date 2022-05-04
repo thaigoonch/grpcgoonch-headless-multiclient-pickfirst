@@ -1,21 +1,21 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: grpcgoonch-headless-long-multiclient-roundrobin-cron
+  name: grpcgoonch-headless-long-multiclient-pickfirst-cron
   labels:
-    app: grpcgoonch-headless-long-multiclient-roundrobin
+    app: grpcgoonch-headless-long-multiclient-pickfirst
 spec:
   schedule: "0/8 * * * *"
   jobTemplate:
     metadata:
       labels:
-        app: grpcgoonch-headless-long-multiclient-roundrobin
+        app: grpcgoonch-headless-long-multiclient-pickfirst
     spec:
       template:
         spec:
           containers:
-          - name: grpcgoonch-headless-long-multiclient-roundrobin
-            image: thaigoonch/grpcgoonch-headless-long-multiclient-roundrobin:1.0
+          - name: grpcgoonch-headless-long-multiclient-pickfirst
+            image: thaigoonch/grpcgoonch-headless-long-multiclient-pickfirst:1.0
             imagePullPolicy: IfNotPresent
             env:
             - name: LOG_LEVEL

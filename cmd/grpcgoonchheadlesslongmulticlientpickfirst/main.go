@@ -42,16 +42,16 @@ func main() {
 
 	for i := 0; i < 12; i++ {
 		opts := []grpc.DialOption{
-			grpc.WithDefaultServiceConfig(`{"loadBalancingConfig": [{"round_robin":{}}]}`),
+			grpc.WithDefaultServiceConfig(`{"loadBalancingConfig": [{"pick_first":{}}]}`),
 			grpc.WithTransportCredentials(insecure.NewCredentials()),
 			grpc.WithUnaryInterceptor(grpcMetrics.UnaryClientInterceptor()),
 		}
-		conn, err := grpc.Dial(fmt.Sprintf("dns:///%s:%d", host, port), opts...)
+		conn, err := grpc.Dial(fmt.Sprintf("%s:%d", host, port), opts...)
 		if err != nil {
 			grpclog.Fatalf("Could not connect on port %d: %v", port, err)
 		}
 		defer conn.Close()
-	
+
 		c := grpcgoonch.NewServiceClient(conn)
 		text := "encrypt me"
 		key := []byte("#89er@jdks$jmf_d")

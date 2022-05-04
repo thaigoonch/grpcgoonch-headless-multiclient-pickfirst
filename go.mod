@@ -1,4 +1,4 @@
-module github.com/thaigoonch/grpcgoonch-headless-long-multiclient-roundrobin
+module github.com/thaigoonch/grpcgoonch-headless-long-multiclient-pickfirst
 
 go 1.17
 
